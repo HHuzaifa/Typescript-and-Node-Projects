@@ -1,6 +1,6 @@
 {
   "name": "00_calculator",
-  "type": "module",
+  "types": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,9 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^5.1.2",
+    "chalk-animation": "^2.0.3",
     "inquirer": "^9.1.4"
   },
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/chalk-animation": "^1.6.1",
     "@types/inquirer": "^9.0.3",
     "@types/node": "^18.11.10"
   }
