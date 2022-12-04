@@ -1,12 +1,10 @@
 {
-  "name": "00calculator_huzaifa",
+  "name": "00calculator-huzaifa",
   "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "bin": {
-    "calculator_huzaifa_k": "bin/index.js"
-  },
+  "bin": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
