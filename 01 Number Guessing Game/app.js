@@ -21,7 +21,7 @@ async function askUser() {
         {
             type: "number",
             name: "user_input",
-            message: "select any number from 1 to 5",
+            message: "Enter any number from 1 to 5",
             // validate: (answers: number) => {
             //     if (isNaN(answers)) {
             //         return chalk.red("Please enter a number!!!")
@@ -36,10 +36,10 @@ async function askUser() {
         console.log(chalk.green("Congratulation ,your guess is right!"));
     }
     else if (qRepeat.user_input < randomNumber) {
-        console.log(chalk.red(`Nope, your number ${qRepeat.userInfo} is less than guess number.`));
+        console.log(chalk.yellow(`Nope, your number ${qRepeat.user_input} is less than guess number.`));
     }
     else if (qRepeat.user_input > randomNumber) {
-        console.log(chalk.red(`Nope, your number ${qRepeat.userInfo} is higher than guess number.`));
+        console.log(chalk.yellow(`Nope, your number ${qRepeat.user_input} is higher than guess number.`));
     }
     ;
 }
