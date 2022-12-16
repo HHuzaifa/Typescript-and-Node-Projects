@@ -6,24 +6,18 @@ import chalkAnimation from "chalk-animation"
 import { type, userInfo } from "os";
 
 
-// callPaused function for displaying message
-function pausedStart() {
-    return new Promise((resolve) => {
-        setTimeout(resolve, 2000)
-    })
-}
+// Pause function
+const sleep = () => new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-// actual display message for greeting the user
+// Display greetings
 async function displayMessage() {
-    let message = chalkAnimation.karaoke("THE GAME HAS STARTED")
-    await pausedStart()
-    console.log(chalk.green(message))
+    chalkAnimation.karaoke(chalk.yellowBright("THE GAME HAS STARTED"))
+    await sleep()
 }
-
-//displayMessage();
 
 // This is the player's life
 var playerLife = 3;
+
 
 
 async function askUser() {
@@ -39,7 +33,7 @@ async function askUser() {
                     message: "Enter any number from 1 to 5",
                 }
             ])
-        console.log(qRepeat)
+        //console.log(qRepeat)
         if (qRepeat.user_input == randomNumber) {
             console.log(chalk.green("Congratulation ,your guess is right!"))
         } else if (qRepeat.user_input < randomNumber) {
@@ -57,6 +51,8 @@ async function askUser() {
 
 async function startAgain() {
     do {
+        console.clear();
+        await displayMessage()
         playerLife = 3;
         await askUser();
         var restart = await inquirer.prompt([
@@ -67,7 +63,7 @@ async function startAgain() {
             Press Y or N`
             }
         ])
-    }while(restart.user_yn === "y" || restart.user_yn === "Y" || restart.user_yn === "yes" || restart.user_yn === "YES")
+    } while (restart.user_yn === "y" || restart.user_yn === "Y" || restart.user_yn === "yes" || restart.user_yn === "YES")
 }
 
 startAgain();

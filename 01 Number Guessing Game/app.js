@@ -2,19 +2,13 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 import chalkAnimation from "chalk-animation";
-// callPaused function for displaying message
-function pausedStart() {
-    return new Promise((resolve) => {
-        setTimeout(resolve, 2000);
-    });
-}
-// actual display message for greeting the user
+// Pause function
+const sleep = () => new Promise((resolve, reject) => setTimeout(resolve, 3000));
+// Display greetings
 async function displayMessage() {
-    let message = chalkAnimation.karaoke("THE GAME HAS STARTED");
-    await pausedStart();
-    console.log(chalk.green(message));
+    chalkAnimation.karaoke(chalk.yellowBright("THE GAME HAS STARTED"));
+    await sleep();
 }
-//displayMessage();
 // This is the player's life
 var playerLife = 3;
 async function askUser() {
@@ -30,7 +24,7 @@ async function askUser() {
                 message: "Enter any number from 1 to 5",
             }
         ]);
-        console.log(qRepeat);
+        //console.log(qRepeat)
         if (qRepeat.user_input == randomNumber) {
             console.log(chalk.green("Congratulation ,your guess is right!"));
         }
@@ -49,6 +43,8 @@ async function askUser() {
 //askUser();
 async function startAgain() {
     do {
+        console.clear();
+        await displayMessage();
         playerLife = 3;
         await askUser();
         var restart = await inquirer.prompt([

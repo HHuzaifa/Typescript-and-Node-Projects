@@ -1,6 +1,6 @@
 {
-  "name": "01number-guessing-game-huzaifa",
-  "version": "1.1.0",
+  "name": "01number-guessinggame-huzaifa",
+  "version": "1.0.0",
   "type": "module",
   "description": "",
   "main": "index.js",
