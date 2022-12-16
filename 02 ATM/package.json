@@ -1,5 +1,5 @@
 {
-  "name": "02-atm",
+  "name": "02-atm-huzaifak",
   "type": "module",
   "version": "1.0.0",
   "description": "",
@@ -9,5 +9,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "chalk-animation": "^2.0.3",
+    "inquirer": "^9.1.4"
+  },
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/chalk-animation": "^1.6.1",
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.11.15"
+  }
 }
