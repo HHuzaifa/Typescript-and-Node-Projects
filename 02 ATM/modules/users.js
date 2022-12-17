@@ -11,6 +11,5 @@ let users = [
         pincode: "123",
         balance: Math.ceil(Math.random() * 1000000 + 1)
     }
-]
-
-export default users
+];
+export default users;

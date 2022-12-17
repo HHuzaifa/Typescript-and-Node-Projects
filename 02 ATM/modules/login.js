@@ -1,7 +1,5 @@
-import users from "./users.js"
-import inquirer from "inquirer"
-import { type } from "os"
-
+import users from "./users.js";
+import inquirer from "inquirer";
 async function askInput() {
     const answer = await inquirer.prompt([
         {
@@ -14,14 +12,13 @@ async function askInput() {
             type: "password",
             message: "Please enter your atm pin."
         }
-    ])
-
-    let user = users.find(u => (u.accountnumber == answer.accountNumber && u.pincode == answer.pin))
-
+    ]);
+    let user = users.find(u => (u.accountnumber == answer.accountNumber && u.pincode == answer.pin));
     if (typeof user != "undefined") {
-        console.log(`Hi ${user.name}, Yor are logged in!`)
-    }else {
-        console.log("Please enter the right credentials!")
+        console.log(`Hi ${user.name}, Yor are logged in!`);
+    }
+    else {
+        console.log("Please enter the right credentials!");
     }
 }
 export default askInput;
