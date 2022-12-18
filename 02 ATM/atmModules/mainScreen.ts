@@ -1,8 +1,10 @@
 import inquirer from "inquirer";
 import users from "./users.js";
+import cashWithdraw from "./cashWithdrawal.js";
+
 
 async function mainScreen(balance: number) {
-    const askOptions = await inquirer.prompt([
+    const userInput = await inquirer.prompt([
         {
             name: "menu",
             type: "list",
@@ -11,9 +13,9 @@ async function mainScreen(balance: number) {
         }
     ]);
 
-    switch (askOptions.menu) {
+    switch (userInput.menu) {
         case "Balance Inquiry":
-            console.log(`Your current balance is ${balance}`)
+            console.log(`Your current balance is $${balance}.`)
             break
 
         case "Cash Deposit":
@@ -21,7 +23,7 @@ async function mainScreen(balance: number) {
             break
 
         case "Cash Withdraw":
-            console.log("Withdraw")
+            cashWithdraw(balance)
             break
 
         case "Transfer Money":

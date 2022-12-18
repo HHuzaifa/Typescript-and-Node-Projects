@@ -1,5 +1,5 @@
 #! /usr/bin/env node
 
-import askInput from "./modules/login.js";
+import askInput from "./atmModules/login.js";
 
 askInput()
