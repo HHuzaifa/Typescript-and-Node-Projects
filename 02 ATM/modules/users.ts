@@ -1,16 +1,16 @@
 let users = [
     {
         name: "Huzaifa",
-        accountnumber: 5858768,
-        pincode: "123",
+        accountnumber: 5522,
+        pincode: "1235",
         balance: Math.ceil(Math.random() * 10000000000 + 1)
     },
     {
-        name: "Jahanzeib",
-        accountnumber: 565646,
-        pincode: "123",
+        name: "Hassan",
+        accountnumber: 4433,
+        pincode: "1234",
         balance: Math.ceil(Math.random() * 1000000 + 1)
     }
 ]
 
-export default users
+export default users;
