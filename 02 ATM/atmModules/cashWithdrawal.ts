@@ -62,7 +62,6 @@ async function cashWithdraw(balance: number) {
 
         case "otherAmount":
             balance = await otherAmount(balance)
-            console.log(`Your new balance is $${balance}.`)
             break
     }
     return balance;

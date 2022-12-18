@@ -1,5 +1,6 @@
 import inquirer from "inquirer";
 import cashWithdraw from "./cashWithdrawal.js";
+import cashDeposit from "./cashDeposit.js";
 async function mainScreen(balance) {
     const userInput = await inquirer.prompt([
         {
@@ -14,10 +15,12 @@ async function mainScreen(balance) {
             console.log(`Your current balance is $${balance}.`);
             break;
         case "Cash Deposit":
-            console.log("Deposit");
+            balance = await cashDeposit(balance);
+            console.log(`Transaction successful, new balance is $${balance}.`);
             break;
         case "Cash Withdraw":
-            cashWithdraw(balance);
+            balance = await cashWithdraw(balance);
+            console.log(`Transaction successful, new balance is $${balance}.`);
             break;
         case "Transfer Money":
             console.log("Transfer");

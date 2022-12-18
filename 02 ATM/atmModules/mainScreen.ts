@@ -1,6 +1,7 @@
 import inquirer from "inquirer";
 import users from "./users.js";
 import cashWithdraw from "./cashWithdrawal.js";
+import cashDeposit from "./cashDeposit.js";
 
 
 async function mainScreen(balance: number) {
@@ -15,15 +16,17 @@ async function mainScreen(balance: number) {
 
     switch (userInput.menu) {
         case "Balance Inquiry":
-            console.log(`Your current balance is $${balance}.`)
+            console.log(`Your current balance is ${balance}.`)
             break
 
         case "Cash Deposit":
-            console.log("Deposit")
+            balance = await cashDeposit(balance)
+            console.log(`Transaction successful, new balance is ${balance}.`)
             break
 
         case "Cash Withdraw":
-            cashWithdraw(balance)
+            balance = await cashWithdraw(balance)
+            console.log(`Transaction successful, new balance is ${balance}.`)
             break
 
         case "Transfer Money":
