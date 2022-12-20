@@ -1,10 +1,11 @@
+import chalk from "chalk";
 import inquirer from "inquirer";
 async function cashDeposit(balance) {
     const userInput = await inquirer.prompt([
         {
             name: "deposit",
             type: "number",
-            message: "Enter the amount you want to deposit:\n"
+            message: chalk.blue("\nEnter the amount you want to deposit:\n")
         }
     ]);
     balance += userInput.deposit;
