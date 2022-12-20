@@ -1,6 +1,5 @@
 import chalk from "chalk";
 import inquirer from "inquirer";
-import users from "./users.js";
 
 
 async function cashDeposit(balance: number) {

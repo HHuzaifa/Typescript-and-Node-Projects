@@ -1,6 +1,5 @@
 import { backgroundColorNames } from "chalk";
 import inquirer from "inquirer";
-import users from "./users.js";
 
 async function otherAmount(balance: number) {
     const userInput = await inquirer.prompt([

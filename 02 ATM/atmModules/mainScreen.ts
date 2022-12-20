@@ -1,5 +1,4 @@
 import inquirer from "inquirer";
-import users from "./users.js";
 import cashWithdraw from "./cashWithdrawal.js";
 import cashDeposit from "./cashDeposit.js";
 import cashTransfer from "./cashTransfer.js";
