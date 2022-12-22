@@ -10,7 +10,7 @@ async function mainScreen() {
         {
             name: "optionsList",
             type: "list",
-            choices: ["displayTasks", "addTask", "removeTask", "updateTask", "exit"]
+            choices: ["displayTasks", "addTask", "updateTask", "exit"]
         }
     ]);
     switch (userInput.optionsList) {
@@ -22,12 +22,9 @@ async function mainScreen() {
         case "addTask":
             addTask(taskList)
             console.log("Your task has been successfully")
-
-        case "removeTask":
-            console.log("addTask")
-
+            
         case "updateTask":
-            console.log("addTask")
+            console.log()
 
         case "exit":
 
