@@ -18,8 +18,6 @@ async function addTask(taskList) {
     else {
         console.log("Please enter a valid input!");
     }
-    if (userInput.addMore === "Yes" || "yes" || "y" || "Y") {
-        await addTask(taskList);
-    }
 }
+;
 export default addTask;

@@ -1,5 +1,4 @@
 import inquirer from "inquirer";
-import mainScreen from "./mainScreen.js";
 
 async function addTask(taskList: Array<string>) {
     const userInput = await inquirer.prompt([
@@ -20,10 +19,6 @@ async function addTask(taskList: Array<string>) {
     }else {
         console.log("Please enter a valid input!")
     }
-
-    if (userInput.addMore === "Yes" || "yes" || "y" || "Y") {
-        await addTask(taskList)
-    }
-}
+};
 
 export default addTask;

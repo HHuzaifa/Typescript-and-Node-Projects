@@ -1,7 +1,7 @@
 import inquirer from "inquirer";
 import addTask from "./addTask.js";
 
-var taskList: Array<string> = [];
+var taskList: Array<string> = ["huzaifa", "hamza", "hassan"];
 
 
 async function mainScreen() {
@@ -10,13 +10,15 @@ async function mainScreen() {
         {
             name: "optionsList",
             type: "list",
-            choices: ["displayTaks", "addTask", "removeTask", "updateTask", "exit"]
+            choices: ["displayTasks", "addTask", "removeTask", "updateTask", "exit"]
         }
     ]);
     switch (userInput.optionsList) {
-        case "displayTask":
-            console.log()
-            
+        case "displayTasks":
+            for (let i = 0; i < taskList.length; i++) {
+                console.log(taskList[i])
+            }
+
         case "addTask":
             addTask(taskList)
             console.log("Your task has been successfully")
