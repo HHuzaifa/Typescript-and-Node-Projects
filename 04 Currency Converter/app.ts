@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 import inquirer from "inquirer"
-
+import chalk from "chalk";
 
 
 
@@ -24,4 +24,8 @@ async function getAmount1stCurrency2ndCurrency() {
             message: "Enter the currency you want to convert to:\n"
         }
     ]);
+};
+
+async function converter(getAmount1stCurrency2ndCurrency: Function) {
+    switch()
 }
