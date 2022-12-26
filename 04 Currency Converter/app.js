@@ -1,10 +1,5 @@
 #! /usr/bin/env node
-import inquirer from "inquirer"
-import chalk from "chalk";
-import { type } from "os";
-import { format } from "path";
-
-
+import inquirer from "inquirer";
 var currenciesAndValues = {
     USD: {
         GBP: 0.83,
@@ -86,8 +81,7 @@ var currenciesAndValues = {
         USD: 0.27,
         GBP: 0.22
     }
-}
-
+};
 async function quit() {
     const userInput = await inquirer.prompt([
         {
@@ -95,9 +89,8 @@ async function quit() {
             type: "confirm",
             message: "Do you want to convert some currency again?"
         }
-    ])
+    ]);
 }
-
 async function currencyConverter() {
     const userInput = await inquirer.prompt([
         {
@@ -118,43 +111,40 @@ async function currencyConverter() {
             message: "Enter the amount here:"
         }
     ]);
-    const { firstCurrency, secondCurrency, amount } = userInput
-
-    let converted = undefined
-
+    const { firstCurrency, secondCurrency, amount } = userInput;
+    let converted = undefined;
     // from usd
     if (firstCurrency === "USD" && secondCurrency === "USD") {
-        converted = currenciesAndValues.USD.USD * amount
-        console.log(converted)
-    } else if (firstCurrency === "USD" && secondCurrency === "GBP") {
-        converted = currenciesAndValues.USD.GBP * amount
-        console.log(converted)
+        converted = currenciesAndValues.USD.USD * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "USD" && secondCurrency === "GBP") {
+        converted = currenciesAndValues.USD.GBP * amount;
+        console.log(converted);
     }
     else if (firstCurrency === "USD" && secondCurrency === "SAR") {
-        converted = currenciesAndValues.USD.SAR * amount
-        console.log(converted)
-
-    } else if (firstCurrency === "USD" && secondCurrency === "CNY") {
-        converted = currenciesAndValues.USD.CNY * amount
-        console.log(converted)
-
-    } else if (firstCurrency === "USD" && secondCurrency === "JPY") {
-        converted = currenciesAndValues.USD.JPY * amount
-        console.log(converted)
-
-    } else if (firstCurrency === "USD" && secondCurrency === "EUR") {
-        converted = currenciesAndValues.USD.EUR * amount
-        console.log(converted)
-
-    } else if (firstCurrency === "USD" && secondCurrency === "RUB") {
-        converted = currenciesAndValues.USD.RUB * amount
-        console.log(converted)
-
-    } else if (firstCurrency === "USD" && secondCurrency === "PKR") {
-        converted = currenciesAndValues.USD.PKR * amount
-        console.log(converted)
+        converted = currenciesAndValues.USD.SAR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "USD" && secondCurrency === "CNY") {
+        converted = currenciesAndValues.USD.CNY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "USD" && secondCurrency === "JPY") {
+        converted = currenciesAndValues.USD.JPY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "USD" && secondCurrency === "EUR") {
+        converted = currenciesAndValues.USD.EUR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "USD" && secondCurrency === "RUB") {
+        converted = currenciesAndValues.USD.RUB * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "USD" && secondCurrency === "PKR") {
+        converted = currenciesAndValues.USD.PKR * amount;
+        console.log(converted);
     }
 }
-
-
-currencyConverter()
+currencyConverter();
