@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
+import chalk from "chalk";
 var currenciesAndValues = {
     USD: {
         GBP: 0.83,
@@ -82,34 +83,37 @@ var currenciesAndValues = {
         GBP: 0.22
     }
 };
-async function quit() {
+async function quit(currencyConverter) {
     const userInput = await inquirer.prompt([
         {
             name: "quitOrNot",
             type: "confirm",
-            message: "Do you want to convert some currency again?"
+            message: chalk.bold.blue("\nDo you want to convert some currency?\n")
         }
     ]);
+    if (userInput.quitOrNot === true) {
+        return currencyConverter();
+    }
 }
 async function currencyConverter() {
     const userInput = await inquirer.prompt([
         {
             name: "firstCurrency",
             type: "list",
-            message: "Select the currency you want to convert from:",
+            message: chalk.bold.blue("\nSelect the currency you want to convert from:\n\t"),
             choices: ["USD", "GBP", "SAR", "CNY", "JPY", "EUR", "RUB", "PKR"]
         },
         {
             name: "secondCurrency",
             type: "list",
-            message: "Select the currency you want to convert to:",
+            message: chalk.bold.blue("\nSelect the currency you want to convert to:\n\t"),
             choices: ["USD", "GBP", "SAR", "CNY", "JPY", "EUR", "RUB", "PKR"]
         },
         {
             name: "amount",
             type: "number",
-            message: "Enter the amount here:"
-        }
+            message: chalk.bold.blue("\nEnter the amount here:\n\t")
+        },
     ]);
     const { firstCurrency, secondCurrency, amount } = userInput;
     let converted = undefined;
@@ -146,5 +150,237 @@ async function currencyConverter() {
         converted = currenciesAndValues.USD.PKR * amount;
         console.log(converted);
     }
+    // from gbp
+    else if (firstCurrency === "GBP" && secondCurrency === "USD") {
+        converted = currenciesAndValues.USD.USD * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "GBP" && secondCurrency === "GBP") {
+        converted = currenciesAndValues.USD.GBP * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "GBP" && secondCurrency === "SAR") {
+        converted = currenciesAndValues.USD.SAR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "GBP" && secondCurrency === "CNY") {
+        converted = currenciesAndValues.USD.CNY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "GBP" && secondCurrency === "JPY") {
+        converted = currenciesAndValues.USD.JPY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "GBP" && secondCurrency === "EUR") {
+        converted = currenciesAndValues.USD.EUR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "GBP" && secondCurrency === "RUB") {
+        converted = currenciesAndValues.USD.RUB * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "GBP" && secondCurrency === "PKR") {
+        converted = currenciesAndValues.USD.PKR * amount;
+        console.log(converted);
+    }
+    // from pkr
+    else if (firstCurrency === "PKR" && secondCurrency === "USD") {
+        converted = currenciesAndValues.USD.USD * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "PKR" && secondCurrency === "GBP") {
+        converted = currenciesAndValues.USD.GBP * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "PKR" && secondCurrency === "SAR") {
+        converted = currenciesAndValues.USD.SAR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "PKR" && secondCurrency === "CNY") {
+        converted = currenciesAndValues.USD.CNY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "PKR" && secondCurrency === "JPY") {
+        converted = currenciesAndValues.USD.JPY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "PKR" && secondCurrency === "EUR") {
+        converted = currenciesAndValues.USD.EUR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "PKR" && secondCurrency === "RUB") {
+        converted = currenciesAndValues.USD.RUB * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "PKR" && secondCurrency === "PKR") {
+        converted = currenciesAndValues.USD.PKR * amount;
+        console.log(converted);
+    }
+    // from RUB
+    else if (firstCurrency === "RUB" && secondCurrency === "USD") {
+        converted = currenciesAndValues.USD.USD * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "RUB" && secondCurrency === "GBP") {
+        converted = currenciesAndValues.USD.GBP * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "RUB" && secondCurrency === "SAR") {
+        converted = currenciesAndValues.USD.SAR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "RUB" && secondCurrency === "CNY") {
+        converted = currenciesAndValues.USD.CNY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "RUB" && secondCurrency === "JPY") {
+        converted = currenciesAndValues.USD.JPY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "RUB" && secondCurrency === "EUR") {
+        converted = currenciesAndValues.USD.EUR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "RUB" && secondCurrency === "RUB") {
+        converted = currenciesAndValues.USD.RUB * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "RUB" && secondCurrency === "PKR") {
+        converted = currenciesAndValues.USD.PKR * amount;
+        console.log(converted);
+    }
+    // from EUR
+    else if (firstCurrency === "EUR" && secondCurrency === "USD") {
+        converted = currenciesAndValues.USD.USD * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "EUR" && secondCurrency === "GBP") {
+        converted = currenciesAndValues.USD.GBP * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "EUR" && secondCurrency === "SAR") {
+        converted = currenciesAndValues.USD.SAR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "EUR" && secondCurrency === "CNY") {
+        converted = currenciesAndValues.USD.CNY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "EUR" && secondCurrency === "JPY") {
+        converted = currenciesAndValues.USD.JPY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "EUR" && secondCurrency === "EUR") {
+        converted = currenciesAndValues.USD.EUR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "EUR" && secondCurrency === "RUB") {
+        converted = currenciesAndValues.USD.RUB * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "EUR" && secondCurrency === "PKR") {
+        converted = currenciesAndValues.USD.PKR * amount;
+        console.log(converted);
+    }
+    // from JPY
+    else if (firstCurrency === "JPY" && secondCurrency === "USD") {
+        converted = currenciesAndValues.USD.USD * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "JPY" && secondCurrency === "GBP") {
+        converted = currenciesAndValues.USD.GBP * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "JPY" && secondCurrency === "SAR") {
+        converted = currenciesAndValues.USD.SAR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "JPY" && secondCurrency === "CNY") {
+        converted = currenciesAndValues.USD.CNY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "JPY" && secondCurrency === "JPY") {
+        converted = currenciesAndValues.USD.JPY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "JPY" && secondCurrency === "EUR") {
+        converted = currenciesAndValues.USD.EUR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "JPY" && secondCurrency === "RUB") {
+        converted = currenciesAndValues.USD.RUB * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "JPY" && secondCurrency === "PKR") {
+        converted = currenciesAndValues.USD.PKR * amount;
+        console.log(converted);
+    }
+    // from CNY
+    else if (firstCurrency === "CNY" && secondCurrency === "USD") {
+        converted = currenciesAndValues.USD.USD * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "CNY" && secondCurrency === "GBP") {
+        converted = currenciesAndValues.USD.GBP * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "CNY" && secondCurrency === "SAR") {
+        converted = currenciesAndValues.USD.SAR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "CNY" && secondCurrency === "CNY") {
+        converted = currenciesAndValues.USD.CNY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "CNY" && secondCurrency === "JPY") {
+        converted = currenciesAndValues.USD.JPY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "CNY" && secondCurrency === "EUR") {
+        converted = currenciesAndValues.USD.EUR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "CNY" && secondCurrency === "RUB") {
+        converted = currenciesAndValues.USD.RUB * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "CNY" && secondCurrency === "PKR") {
+        converted = currenciesAndValues.USD.PKR * amount;
+        console.log(converted);
+    }
+    // from SAR
+    else if (firstCurrency === "SAR" && secondCurrency === "USD") {
+        converted = currenciesAndValues.USD.USD * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "SAR" && secondCurrency === "GBP") {
+        converted = currenciesAndValues.USD.GBP * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "SAR" && secondCurrency === "SAR") {
+        converted = currenciesAndValues.USD.SAR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "SAR" && secondCurrency === "CNY") {
+        converted = currenciesAndValues.USD.CNY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "SAR" && secondCurrency === "JPY") {
+        converted = currenciesAndValues.USD.JPY * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "SAR" && secondCurrency === "EUR") {
+        converted = currenciesAndValues.USD.EUR * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "SAR" && secondCurrency === "RUB") {
+        converted = currenciesAndValues.USD.RUB * amount;
+        console.log(converted);
+    }
+    else if (firstCurrency === "SAR" && secondCurrency === "PKR") {
+        converted = currenciesAndValues.USD.PKR * amount;
+        console.log(converted);
+    }
+    quit(currencyConverter);
 }
-currencyConverter();
+quit(currencyConverter);
