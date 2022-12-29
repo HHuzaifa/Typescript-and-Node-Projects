@@ -1,8 +1,10 @@
 {
   "name": "06-student-management-system",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
+  "bin": "./app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
