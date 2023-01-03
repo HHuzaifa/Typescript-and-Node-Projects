@@ -11,12 +11,12 @@ class Human {
 }
 
 class Course {
-    courseName: string
+    name: string
     students: Student[] = []
-    constructor(name: string, courseName: string, students: Student) {
-        this.courseName = courseName
+    constructor(name: string, courseName: string) {
+        this.name = name
     }
-    addStudent() {
+    addStudent(Student: Student) {
         this.students.push(Student)
     }
 }
