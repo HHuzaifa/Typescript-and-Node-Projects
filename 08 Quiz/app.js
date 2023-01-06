@@ -1,12 +1,9 @@
 #! /usr/bin/env node
-
 import chalk from "chalk";
 import inquirer from "inquirer";
-
-
 async function askQuestions() {
-    var score: number = 0
-    console.log(chalk.blue("\nQuiz Started!\n\n"))
+    var score = 0;
+    console.log(chalk.blue("Quiz Started!"));
     const userInput = await inquirer.prompt([
         {
             name: "question1",
@@ -47,35 +44,34 @@ async function askQuestions() {
     ]);
     switch (userInput.question1) {
         case "milky Way Galaxy":
-            score++
-            break
+            score++;
+            break;
     }
     switch (userInput.question2) {
         case "bad":
-            score++
-            break
+            score++;
+            break;
     }
     switch (userInput.question3) {
         case "heart":
-            score++
-            break
+            score++;
+            break;
     }
     switch (userInput.question4) {
         case "earth":
-            score++
-            break
+            score++;
+            break;
     }
     switch (userInput.question5) {
         case "moon":
-            score++
-            break
+            score++;
+            break;
     }
-    console.log(chalk.blue(`You scored ${score} out of 5.`))
-    switch(userInput.quizAgain) {
+    console.log(chalk.blue(`You scored ${score} out of 5.`));
+    switch (userInput.quizAgain) {
         case "Yes":
-            askQuestions()
-            break
+            askQuestions();
+            break;
     }
 }
-
 askQuestions();
