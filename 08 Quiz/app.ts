@@ -1,53 +1,70 @@
 #! /usr/bin/env node
-import inquirer from "inquirer";
+
 import chalk from "chalk";
+import inquirer from "inquirer";
 
-// An object representing quiz's question and answers.
-const questions = [] = [
-    {
-        question1: "What is the name of the galaxy we live in?",
-        answer1: {
-            a: "milky Way Galaxy",
-            b: "andromeda Galaxy",
-            c: "draco Dwarf Galaxy"
+
+async function askQuestions() {
+    var score: number = 0
+    console.log(chalk.blue("Quiz Started!"))
+    const userInput = await inquirer.prompt([
+        {
+            name: "question1",
+            type: "list",
+            choices: ["milky Way Galaxy", "andromeda Galaxy", "draco Dwarf Galaxy"],
+            message: "What is the name of the galaxy we live in?"
         },
-        correctAnswer: "milky Way Galaxy"
-    },
-    {
-        question2: "What is the opposite of good?",
-        answer2: {
-            a: "happy",
-            b: "bad",
-            c: "anger"
+        {
+            name: "question2",
+            type: "list",
+            choices: ["happy", "bad", "anger"],
+            message: "What is the opposite of good?"
         },
-        correctAnswer: "bad"
-    },
-    {
-        question3: "Select the vital organ of a human body.",
-        anwser3: {
-            a: "foot",
-            b: "finger",
-            c: "heart"
+        {
+            name: "question3",
+            type: "list",
+            choices: ["foot", "finger", "heart"],
+            message: "Select the vital organ of a human body."
         },
-        correctAnswer: "heart"
-    },
-    {
-        question4: "What is the planet's name we live on?",
-        answer4: {
-            a: "jupyter",
-            b: "earth",
-            c: "venus"
+        {
+            name: "question4",
+            type: "list",
+            choices: ["jupyter", "earth", "venus"],
+            message: "What is the planet's name we live on?"
         },
-        correctAnswer: "earth"
-    },
-    {
-        question5: "What we see in the sky at night?",
-        answer5: {
-            a: "moon",
-            b: "saturn",
-            c: "sun"
-        },
-        correctAnswer: "moon"
+        {
+            name: "question5",
+            type: "list",
+            choices: ["moon", "saturn", "sun"],
+            message: "What we see in the sky at night?"
+        }
+    ]);
+    switch (userInput.question1) {
+        case "milky Way Galaxy":
+            score++
+            break
     }
-]
+    switch (userInput.question2) {
+        case "bad":
+            score++
+            break
+    }
+    switch (userInput.question3) {
+        case "heart":
+            score++
+            break
+    }
+    switch (userInput.question4) {
+        case "earth":
+            score++
+            break
+    }
+    switch (userInput.question5) {
+        case "moon":
+            score++
+            break
+    }
+    console.log(`You scored ${score} out of 5.`)
+}
 
+askQuestions();
