@@ -16,7 +16,7 @@ async function playGame() {
     let healthPotionHealAmount = 30
     let healthPotionDropChance = 50 // Percent
 
-    // If True keep the game running
+    // If True, keep the game running
     let running = Boolean
     console.log(chalk.red("\nWelcome to the Dungeons!!!\n"))
 
@@ -36,10 +36,11 @@ async function playGame() {
             {
                 name: "myActions",
                 type: "list",
-                choices: [""]
+                choices: ["Attack", "Drink Health Potion", "Run Away"],
+                message: "what would you like to do?"
             }
-        ])
+        ]);
     }
 }
 
-var lastTutorialtimePoint = 18.16
+playGame()

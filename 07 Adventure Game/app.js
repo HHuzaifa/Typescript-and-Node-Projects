@@ -1,3 +1,4 @@
+import inquirer from "inquirer";
 import chalk from "chalk";
 async function playGame() {
     // Game variables
@@ -17,7 +18,19 @@ async function playGame() {
     let enemyHealth = Math.floor(Math.random() * maxEnemyHealth);
     let enemy = enemies[Math.floor(Math.random() * enemies.length)];
     // A particular enemy appeared
-    console.log(chalk.red(`\tThe ${enemy} enemy appeared!`));
-    console.log(enemyHealth);
+    console.log(chalk.red(`\t#The ${enemy} enemy appeared!#\n`));
+    while (enemyHealth > 0) {
+        console.log(`\tYour HP: ${maxplayerHealth}.`);
+        console.log(`\t${enemy}'s HP: ${enemyHealth}.`);
+        console.log(`\n\tWhat would you like to do?`);
+        const userActionChoices = await inquirer.prompt([
+            {
+                name: "myActions",
+                type: "list",
+                choices: ["Attack", "Drink Health Potion", "Run Away"],
+                message: "what would you like to do?"
+            }
+        ]);
+    }
 }
 playGame();
