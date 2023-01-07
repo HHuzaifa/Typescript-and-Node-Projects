@@ -14,7 +14,10 @@ async function playGame() {
     let running = Boolean;
     console.log(chalk.red("\nWelcome to the Dungeons!!!\n"));
     console.log(chalk.yellow.bold("-------------------------------------------------------------"));
-    let enemyHealth = Math.floor(Math.random() * enemies.length);
+    let enemyHealth = Math.floor(Math.random() * maxEnemyHealth);
+    let enemy = enemies[Math.floor(Math.random() * enemies.length)];
+    // A particular enemy appeared
+    console.log(chalk.red(`\tThe ${enemy} enemy appeared!`));
     console.log(enemyHealth);
 }
 playGame();
