@@ -17,7 +17,7 @@ class Customer {
         this.mobileNumber = mobileNumber
         this.bankAccount = BankAccount
     }
-    customerInfo(): string {
+    customerInfo(Name: string, Age: number, Gender: string, mobileNumber: string, accountBalance: number) {
         return `
         Name: ${this.firstName} ${this.lastName}\n
         Age: ${this.age}\n
