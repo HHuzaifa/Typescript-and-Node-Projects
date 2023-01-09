@@ -1,6 +1,8 @@
 {
   "name": "11-oop-my-bank",
   "version": "1.0.0",
+  "type": "module",
+  "bin": "./app.js",
   "description": "",
   "main": "index.js",
   "scripts": {
